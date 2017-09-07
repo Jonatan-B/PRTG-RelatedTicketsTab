@@ -1,0 +1,1 @@
+This is a javascript modification for PRTG. It adds a tab when you are on a sensor or device page and shows you related tickets. You'll have to add this to the custom javascript folder on your primary PRTG server then it should start working. 
