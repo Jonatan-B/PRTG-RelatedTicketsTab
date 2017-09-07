@@ -38,7 +38,7 @@ function addTicketsToRelatedTicketsTable(listOfTickets){
 
         // Add each property to the table columns, nothing fancy about this.
         ticketSectionInnerHtml += "<tr class='relatedTicketItem'>"
-        ticketSectionInnerHtml += "<td><a href=" + PRTGServerUrl + item.parentid_raw + ">" + item.parentid_raw + "</a></td>";
+        ticketSectionInnerHtml += "<td><a href=" + PRTGServerUrl + "/ticket.htm?id=" + item.parentid_raw + ">" + item.parentid_raw + "</a></td>";
         ticketSectionInnerHtml += "<td>" + statusIcon + " " + status + "</td>";
         ticketSectionInnerHtml += "<td><a class='favstar'></a>" + item.priority + "</td>";
         ticketSectionInnerHtml += "<td>" + item.datetime + "</td>";
@@ -114,7 +114,7 @@ function getTicketsFromPRTG(){
         // datetime -- last time modified
         // parentid -- ticket number
         // message -- subject   
-    ticketsRequest.open("GET", "http://" + PRTGServerUrl + "/api/table.json?content=tickets&output=json&columns=objid,datetime,priority,parentid,message,user,status&count=10000&sortby=-datetime&filter_drel=6months", true);
+    ticketsRequest.open("GET", PRTGServerUrl + "/api/table.json?content=tickets&output=json&columns=objid,datetime,priority,parentid,message,user,status&count=10000&sortby=-datetime&filter_drel=6months", true);
     // Not sure what this is, but it was in the documentation, so i guess i had to add it /shrug
     ticketsRequest.send("null");
 
